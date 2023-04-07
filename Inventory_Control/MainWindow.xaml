@@ -1,12 +1,115 @@
-﻿<Window x:Class="Inventory_Control.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Inventory_Control"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+﻿<Window
+    x:Class="Inventory_Control.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Inventory_Control"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Inventory Control"
+    Width="1400"
+    Height="900"
+    AllowsTransparency="True"
+    Background="Transparent"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    mc:Ignorable="d">
+
+    <Grid
+        x:Name="mainGrid"
+        Width="1400"
+        Height="900"
+        Background="Transparent">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid Background="Transparent">
+            <Border
+                x:Name="TopBar"
+                Margin="0"
+                Background="{DynamicResource PrimaryBrush}"
+                CornerRadius="10,10,0,0" />
+            <Label
+                Margin="5,5,0,0"
+                Content="Inventory Management"
+                FontSize="13"
+                Foreground="{DynamicResource FontBrush}" />
+            <Button
+                x:Name="minimizeButton"
+                Margin="1270,0,0,0"
+                Click="minimizeButton_Click"
+                Style="{StaticResource ResourceKey=ButtonMinimize}" />
+            <Button
+                x:Name="closeButton"
+                Margin="1350,0,5,0"
+                Click="closeButton_Click"
+                Style="{StaticResource ResourceKey=ButtonClose}" />
+        </Grid>
+
+        <Grid
+            x:Name="contentGrid"
+            Grid.Row="1"
+            Background="{DynamicResource SecondaryBrush}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Row="0" Background="{DynamicResource OptionalBrush}">
+                <Button>
+                    <StackPanel
+                        Width="140"
+                        Margin="0"
+                        HorizontalAlignment="Stretch"
+                        Orientation="Horizontal">
+                        <Image Source="assets/dashboard.png" Style="{StaticResource imageButton}" />
+                        <TextBlock
+                            Margin="0,0,5,0"
+                            VerticalAlignment="Center"
+                            Text="Dashboard" />
+                    </StackPanel>
+                </Button>
+                <Button>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="assets/access.png" />
+                        <TextBlock Text="Access" />
+                    </StackPanel>
+                </Button>
+                <Button>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="assets/categories.png" />
+                        <TextBlock Text="Categories" />
+                    </StackPanel>
+                </Button>
+                <Button>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="assets/suppliers.png" />
+                        <TextBlock Text="Suppliers" />
+                    </StackPanel>
+                </Button>
+                <Button>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="assets/sales.png" />
+                        <TextBlock Text="Sales" />
+                    </StackPanel>
+                </Button>
+                <Button>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="assets/inventory.png" />
+                        <TextBlock Text="Inventory" />
+                    </StackPanel>
+                </Button>
+                <Button>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="assets/report.png" />
+                        <TextBlock Text="Report" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>

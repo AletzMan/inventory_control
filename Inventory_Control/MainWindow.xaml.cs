@@ -24,5 +24,15 @@ namespace Inventory_Control
         {
             InitializeComponent();
         }
+
+        private void minimizeButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void closeButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -94,5 +94,13 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="assets\icons\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\close-icon.png">
+      <CustomToolNamespace>Inventory_Control</CustomToolNamespace>
+    </Resource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
