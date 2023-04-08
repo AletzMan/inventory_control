@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Proyectos\Programming\Desktop\Inventory_Control\Inventory_Control\App.xaml
-11151548125
+81323934357
 
-61434861427
+13147794421
 13-1505183044
-MainWindow.xaml;
+MainWindow.xaml;pages\CategoriesPage.xaml;pages\DashboardPage.xaml;pages\InventoryPage.xaml;pages\PermissionsPage.xaml;pages\ReportPage.xaml;pages\SalesPage.xaml;pages\SuppliersPage.xaml;
 
 True
 

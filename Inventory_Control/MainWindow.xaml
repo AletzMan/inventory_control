@@ -10,6 +10,7 @@
     Height="900"
     AllowsTransparency="True"
     Background="Transparent"
+    MouseDown="Window_MouseDown"
     ResizeMode="NoResize"
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
@@ -35,80 +36,184 @@
                 Background="{DynamicResource PrimaryBrush}"
                 CornerRadius="10,10,0,0" />
             <Label
-                Margin="5,5,0,0"
+                Margin="10,5,0,0"
                 Content="Inventory Management"
                 FontSize="13"
                 Foreground="{DynamicResource FontBrush}" />
             <Button
                 x:Name="minimizeButton"
                 Margin="1270,0,0,0"
-                Click="minimizeButton_Click"
+                Click="MinimizeButton_Click"
                 Style="{StaticResource ResourceKey=ButtonMinimize}" />
             <Button
                 x:Name="closeButton"
                 Margin="1350,0,5,0"
-                Click="closeButton_Click"
+                Click="CloseButton_Click"
                 Style="{StaticResource ResourceKey=ButtonClose}" />
         </Grid>
 
         <Grid
             x:Name="contentGrid"
             Grid.Row="1"
-            Background="{DynamicResource SecondaryBrush}">
+            Background="{DynamicResource OptionalBrush}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="150" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <StackPanel Grid.Row="0" Background="{DynamicResource OptionalBrush}">
-                <Button>
+            <StackPanel
+                x:Name="NavigationMenu"
+                Grid.Column="0"
+                Background="{DynamicResource SecondaryBrush}">
+                <Grid
+                    Width="Auto"
+                    Height="40"
+                    Background="{DynamicResource SecondaryBrush}" />
+                <Button
+                    x:Name="dashboardButton"
+                    Background="{DynamicResource PrimaryBrush}"
+                    Click="DashboardButton_Click"
+                    MouseEnter="MenuButton_MouseEnter"
+                    MouseLeave="MenuButton_MouseLeave"
+                    Style="{DynamicResource menuButton}">
                     <StackPanel
                         Width="140"
                         Margin="0"
-                        HorizontalAlignment="Stretch"
-                        Orientation="Horizontal">
-                        <Image Source="assets/dashboard.png" Style="{StaticResource imageButton}" />
+                        Orientation="Vertical">
+                        <Image
+                            Width="20"
+                            Source="assets/dashboard.png"
+                            Style="{StaticResource imageButton}" />
                         <TextBlock
-                            Margin="0,0,5,0"
+                            HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             Text="Dashboard" />
                     </StackPanel>
                 </Button>
-                <Button>
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="assets/access.png" />
-                        <TextBlock Text="Access" />
+                <Button
+                    x:Name="permissionButton"
+                    Click="PermissionButton_Click"
+                    MouseEnter="MenuButton_MouseEnter"
+                    MouseLeave="MenuButton_MouseLeave"
+                    Style="{DynamicResource menuButton}">
+                    <StackPanel
+                        Width="140"
+                        Margin="0"
+                        HorizontalAlignment="Stretch"
+                        Orientation="Vertical">
+                        <Image
+                            Width="30"
+                            Source="assets/access.png"
+                            Style="{StaticResource imageButton}" />
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="Permissions" />
                     </StackPanel>
                 </Button>
-                <Button>
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="assets/categories.png" />
-                        <TextBlock Text="Categories" />
+                <Button
+                    x:Name="categoriesButton"
+                    Click="CategoriesButton_Click"
+                    MouseEnter="MenuButton_MouseEnter"
+                    MouseLeave="MenuButton_MouseLeave"
+                    Style="{DynamicResource menuButton}">
+                    <StackPanel
+                        Width="140"
+                        Margin="0"
+                        HorizontalAlignment="Stretch"
+                        Orientation="Vertical">
+                        <Image Source="assets/categories.png" Style="{StaticResource imageButton}" />
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="Categories" />
                     </StackPanel>
                 </Button>
-                <Button>
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="assets/suppliers.png" />
-                        <TextBlock Text="Suppliers" />
+                <Button
+                    x:Name="supplierButton"
+                    Click="SupplierButton_Click"
+                    MouseEnter="MenuButton_MouseEnter"
+                    MouseLeave="MenuButton_MouseLeave"
+                    Style="{DynamicResource menuButton}">
+                    <StackPanel
+                        Width="140"
+                        Margin="0"
+                        HorizontalAlignment="Stretch"
+                        Orientation="Vertical">
+                        <Image Source="assets/suppliers.png" Style="{StaticResource imageButton}" />
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="Suppliers" />
                     </StackPanel>
                 </Button>
-                <Button>
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="assets/sales.png" />
-                        <TextBlock Text="Sales" />
+                <Button
+                    x:Name="salesButton"
+                    Click="SalesButton_Click"
+                    MouseEnter="MenuButton_MouseEnter"
+                    MouseLeave="MenuButton_MouseLeave"
+                    Style="{DynamicResource menuButton}">
+                    <StackPanel
+                        Width="140"
+                        Margin="0"
+                        HorizontalAlignment="Stretch"
+                        Orientation="Vertical">
+                        <Image Source="assets/sales.png" Style="{StaticResource imageButton}" />
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="Sales" />
                     </StackPanel>
                 </Button>
-                <Button>
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="assets/inventory.png" />
-                        <TextBlock Text="Inventory" />
+                <Button
+                    x:Name="inventoryButton"
+                    Click="InventoryButton_Click"
+                    MouseEnter="MenuButton_MouseEnter"
+                    MouseLeave="MenuButton_MouseLeave"
+                    Style="{DynamicResource menuButton}">
+                    <StackPanel
+                        Width="140"
+                        Margin="0"
+                        HorizontalAlignment="Stretch"
+                        Orientation="Vertical">
+                        <Image Source="assets/inventory.png" Style="{StaticResource imageButton}" />
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="Inventory" />
                     </StackPanel>
                 </Button>
-                <Button>
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="assets/report.png" />
-                        <TextBlock Text="Report" />
+                <Button
+                    x:Name="reportButton"
+                    Click="ReportButton_Click"
+                    MouseEnter="MenuButton_MouseEnter"
+                    MouseLeave="MenuButton_MouseLeave"
+                    Style="{DynamicResource menuButton}">
+                    <StackPanel
+                        Width="140"
+                        Margin="0"
+                        HorizontalAlignment="Stretch"
+                        Orientation="Vertical">
+                        <Image Source="assets/report.png" Style="{StaticResource imageButton}" />
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="Report" />
                     </StackPanel>
                 </Button>
+            </StackPanel>
+            <StackPanel
+                Grid.Column="1"
+                Width="Auto"
+                Height="Auto"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch">
+                <Frame
+                    x:Name="viewPage"
+                    Width="Auto"
+                    Height="Auto"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    NavigationUIVisibility="Hidden" />
             </StackPanel>
         </Grid>
     </Grid>
