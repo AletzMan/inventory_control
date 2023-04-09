@@ -31,7 +31,13 @@ namespace Inventory_Control.pages
         public DashboardPage()
         {
             InitializeComponent();
+            CreateGraphics();
 
+
+        }
+
+        private void CreateGraphics()
+        {
             WeeklySales = new SeriesCollection
             {
                 new ColumnSeries
@@ -54,9 +60,6 @@ namespace Inventory_Control.pages
             Labels = new[] { "Enero", "Feberero", "Marzo", "Abril" };
             WeeklyLabels = new[] { "Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado" };
             Formatter = value => value.ToString("C", CultureInfo.CreateSpecificCulture("es-MX"));
-
-            
-
         }
 
       
