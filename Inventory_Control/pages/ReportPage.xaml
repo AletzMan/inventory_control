@@ -16,33 +16,26 @@
         VerticalAlignment="Stretch"
         Background="{DynamicResource OptionalBrush}">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="10" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <Rectangle
-            Height="69"
-            Margin="0,460,0,0"
-            VerticalAlignment="Top"
-            Fill="{DynamicResource PrimaryBrush}" />
 
-
-        <Grid Grid.Column="1" Margin="0,10,10,10">
+        <Grid Grid.Column="1" Margin="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="150" />
+                <RowDefinition Height="250" />
                 <RowDefinition Height="150" />
                 <RowDefinition Height="150" />
                 <RowDefinition Height="150" />
             </Grid.RowDefinitions>
             <Border
                 Grid.RowSpan="4"
-                Background="{DynamicResource PrimaryBrush}"
-                BorderBrush="{DynamicResource PrimaryBrush}"
+                Background="{DynamicResource OptionalBrush}"
+                BorderBrush="{DynamicResource OptionalBrush}"
                 BorderThickness="1"
-                CornerRadius="10" />
+                CornerRadius="0" />
             <Grid
                 Grid.Row="0"
-                Margin="10,10,10,0"
+                Margin="5,5,5,0"
                 Background="{DynamicResource TertiaryBrush}">
                 <Label
                     HorizontalAlignment="Center"
@@ -52,15 +45,15 @@
             </Grid>
             <Grid
                 Grid.Row="1"
-                Margin="10,0,10,0"
+                Margin="5,0,5,0"
                 Background="{DynamicResource SecondaryBrush}" />
             <Grid
                 Grid.Row="2"
-                Margin="10,0,10,0"
+                Margin="5,0,5,0"
                 Background="{DynamicResource SecondaryBrush}" />
             <Grid
                 Grid.Row="3"
-                Margin="10,0,10,10"
+                Margin="5,0,5,5"
                 Background="{DynamicResource SecondaryBrush}" />
         </Grid>
     </Grid>
