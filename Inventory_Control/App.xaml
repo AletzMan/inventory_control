@@ -138,6 +138,89 @@
                 </Setter>
             </Style>
 
+
+            <Style x:Key="GeneralButton" TargetType="{x:Type Button}">
+                <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
+                <Setter Property="Background" Value="{DynamicResource ButtonBrush}" />
+                <Setter Property="VerticalContentAlignment" Value="Center" />
+                <Setter Property="BorderThickness" Value="2" />
+                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
+                <Setter Property="FontSize" Value="15" />
+                <Setter Property="Width" Value="120" />
+                <Setter Property="Height" Value="35" />
+                <Setter Property="Margin" Value="0,0,0,0" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <ContentControl>
+                                <Grid>
+                                    <Border
+                                        x:Name="BackButton"
+                                        Background="{TemplateBinding Background}"
+                                        BorderBrush="#00121212"
+                                        BorderThickness="1"
+                                        CornerRadius="2">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </Border>
+
+                                </Grid>
+                            </ContentControl>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#CC202731" />
+                                    <Setter Property="Foreground" Value="White" />
+                                    <Setter Property="BorderThickness" Value="1" />
+                                    <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBrush}" />
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
+                                    <Setter Property="BorderThickness" Value="1" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="TransparentButton" TargetType="{x:Type Button}">
+                <Setter Property="Foreground" Value="Transparent" />
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="VerticalContentAlignment" Value="Center" />
+                <Setter Property="Width" Value="35" />
+                <Setter Property="Height" Value="35" />
+                <Setter Property="Margin" Value="0,0,0,0" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <ContentControl>
+                                <Grid>
+                                    <Border
+                                        x:Name="BackButton"
+                                        Background="{TemplateBinding Background}"
+                                        BorderBrush="#00121212"
+                                        BorderThickness="1"
+                                        CornerRadius="2">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </Border>
+
+                                </Grid>
+                            </ContentControl>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#5000ACB4" />
+                                    <Setter Property="Foreground" Value="Transparent" />
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Background" Value="Transparent" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
             <Style x:Key="imageButton" TargetType="{x:Type Image}">
                 <Setter Property="Width" Value="23" />
                 <Setter Property="Height" Value="23" />

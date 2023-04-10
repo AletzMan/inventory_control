@@ -11,6 +11,20 @@
     FontFamily="Bahnschrift Light"
     mc:Ignorable="d">
 
+    <Page.Resources>
+        <Style x:Key="BlurWindow" TargetType="Window">
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <BlurEffect Radius="1" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+
+
+
+    </Page.Resources>
 
     <Grid
         Height="Auto"
@@ -23,9 +37,7 @@
 
         <Grid Grid.Column="1" Margin="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="400" />
-                <RowDefinition Height="150" />
-                <RowDefinition Height="150" />
+                <RowDefinition Height="500" />
             </Grid.RowDefinitions>
             <Border
                 Grid.RowSpan="4"
@@ -47,23 +59,35 @@
                             <RowDefinition Height="50" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
-                        <Border Background="{DynamicResource TertiaryBrush}" CornerRadius="4">
-                            <Label
-                                HorizontalAlignment="Stretch"
-                                HorizontalContentAlignment="Center"
-                                VerticalContentAlignment="Center"
-                                BorderBrush="{DynamicResource HeaderBrush}"
-                                BorderThickness="0,0,0,2"
-                                Content="USUARIOS"
-                                FontSize="25"
-                                Foreground="{DynamicResource FontBrush}" />
+                        <Border Background="{DynamicResource SectionBrush}" CornerRadius="4">
+                            <StackPanel Orientation="Horizontal">
+                                <Label
+                                    Width="1050"
+                                    Padding="10,0,0,0"
+                                    HorizontalAlignment="Left"
+                                    HorizontalContentAlignment="Left"
+                                    VerticalContentAlignment="Center"
+                                    BorderBrush="{DynamicResource HeaderBrush}"
+                                    BorderThickness="0,0,0,0"
+                                    Content="USUARIOS"
+                                    FontSize="25"
+                                    Foreground="{DynamicResource PrimaryBrush}" />
+                                <Button
+                                    x:Name="AddUser"
+                                    Margin="15,0,0,0"
+                                    HorizontalAlignment="Right"
+                                    Click="Handle_AddUser"
+                                    Content="Agregar usuario"
+                                    Cursor="Hand"
+                                    Style="{DynamicResource GeneralButton}" />
+                            </StackPanel>
                         </Border>
                         <Border
                             Grid.Row="1"
                             Background="WhiteSmoke"
                             CornerRadius="0,0,4,4">
-                            <StackPanel x:Name="usersTable" Orientation="Vertical">
-                                <Border>
+                            <StackPanel Orientation="Vertical">
+                                <Border BorderBrush="{DynamicResource HeaderBrush}" BorderThickness="0,0,0,2">
                                     <StackPanel Orientation="Horizontal">
                                         <Label
                                             MinWidth="50"
@@ -73,14 +97,14 @@
                                             Content="ID"
                                             Foreground="{DynamicResource FontTwoBrush}" />
                                         <Label
-                                            MinWidth="150"
+                                            MinWidth="250"
                                             HorizontalContentAlignment="Center"
                                             BorderBrush="{DynamicResource HeaderBrush}"
                                             BorderThickness="0,0,2,0"
                                             Content="NAME"
                                             Foreground="{DynamicResource FontTwoBrush}" />
                                         <Label
-                                            MinWidth="200"
+                                            MinWidth="250"
                                             HorizontalContentAlignment="Center"
                                             BorderBrush="{DynamicResource HeaderBrush}"
                                             BorderThickness="0,0,2,0"
@@ -95,19 +119,12 @@
                                             Foreground="{DynamicResource FontTwoBrush}" />
                                     </StackPanel>
                                 </Border>
+                                <StackPanel x:Name="usersTable" />
                             </StackPanel>
                         </Border>
                     </Grid>
                 </Border>
             </Grid>
-            <Grid
-                Grid.Row="1"
-                Margin="5,0,5,0"
-                Background="{DynamicResource SecondaryBrush}" />
-            <Grid
-                Grid.Row="2"
-                Margin="5,0,5,0"
-                Background="{DynamicResource SecondaryBrush}" />
         </Grid>
     </Grid>
 </Page>
