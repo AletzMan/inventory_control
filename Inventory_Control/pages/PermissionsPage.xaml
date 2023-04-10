@@ -37,7 +37,7 @@
 
         <Grid Grid.Column="1" Margin="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="500" />
+                <RowDefinition Height="600" />
             </Grid.RowDefinitions>
             <Border
                 Grid.RowSpan="4"
@@ -56,38 +56,37 @@
                     CornerRadius="4">
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="50" />
+                            <RowDefinition Height="75" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
                         <Border Background="{DynamicResource SectionBrush}" CornerRadius="4">
-                            <StackPanel Orientation="Horizontal">
-                                <Label
-                                    Width="1050"
-                                    Padding="10,0,0,0"
-                                    HorizontalAlignment="Left"
-                                    HorizontalContentAlignment="Left"
-                                    VerticalContentAlignment="Center"
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label
+                                        Width="1050"
+                                        Padding="10,0,0,0"
+                                        HorizontalAlignment="Left"
+                                        HorizontalContentAlignment="Left"
+                                        VerticalContentAlignment="Center"
+                                        BorderBrush="{DynamicResource HeaderBrush}"
+                                        BorderThickness="0,0,0,0"
+                                        Content="USUARIOS"
+                                        FontSize="25"
+                                        Foreground="{DynamicResource PrimaryBrush}" />
+                                    <Button
+                                        x:Name="AddUser"
+                                        Margin="15,5,0,5"
+                                        HorizontalAlignment="Right"
+                                        Click="Handle_AddUser"
+                                        Content="Agregar usuario"
+                                        Cursor="Hand"
+                                        Style="{DynamicResource GeneralButton}" />
+                                </StackPanel>
+                                <Border
+                                    VerticalAlignment="Bottom"
+                                    Background="{DynamicResource TertiaryBrush}"
                                     BorderBrush="{DynamicResource HeaderBrush}"
-                                    BorderThickness="0,0,0,0"
-                                    Content="USUARIOS"
-                                    FontSize="25"
-                                    Foreground="{DynamicResource PrimaryBrush}" />
-                                <Button
-                                    x:Name="AddUser"
-                                    Margin="15,0,0,0"
-                                    HorizontalAlignment="Right"
-                                    Click="Handle_AddUser"
-                                    Content="Agregar usuario"
-                                    Cursor="Hand"
-                                    Style="{DynamicResource GeneralButton}" />
-                            </StackPanel>
-                        </Border>
-                        <Border
-                            Grid.Row="1"
-                            Background="WhiteSmoke"
-                            CornerRadius="0,0,4,4">
-                            <StackPanel Orientation="Vertical">
-                                <Border BorderBrush="{DynamicResource HeaderBrush}" BorderThickness="0,0,0,2">
+                                    BorderThickness="0,2,0,2">
                                     <StackPanel Orientation="Horizontal">
                                         <Label
                                             MinWidth="50"
@@ -95,32 +94,44 @@
                                             BorderBrush="{DynamicResource HeaderBrush}"
                                             BorderThickness="0,0,2,0"
                                             Content="ID"
-                                            Foreground="{DynamicResource FontTwoBrush}" />
+                                            Foreground="{DynamicResource FontBrush}" />
                                         <Label
                                             MinWidth="250"
                                             HorizontalContentAlignment="Center"
                                             BorderBrush="{DynamicResource HeaderBrush}"
                                             BorderThickness="0,0,2,0"
                                             Content="NAME"
-                                            Foreground="{DynamicResource FontTwoBrush}" />
+                                            Foreground="{DynamicResource FontBrush}" />
                                         <Label
                                             MinWidth="250"
                                             HorizontalContentAlignment="Center"
                                             BorderBrush="{DynamicResource HeaderBrush}"
                                             BorderThickness="0,0,2,0"
                                             Content="EMAIL"
-                                            Foreground="{DynamicResource FontTwoBrush}" />
+                                            Foreground="{DynamicResource FontBrush}" />
                                         <Label
                                             MinWidth="150"
                                             HorizontalContentAlignment="Center"
                                             BorderBrush="{DynamicResource HeaderBrush}"
                                             BorderThickness="0,0,2,0"
                                             Content="PERMISOS"
-                                            Foreground="{DynamicResource FontTwoBrush}" />
+                                            Foreground="{DynamicResource FontBrush}" />
                                     </StackPanel>
                                 </Border>
-                                <StackPanel x:Name="usersTable" />
                             </StackPanel>
+                        </Border>
+                        <Border
+                            Grid.Row="1"
+                            Background="WhiteSmoke"
+                            CornerRadius="0,0,4,4">
+                            <ScrollViewer VerticalScrollBarVisibility="Visible">
+                                <StackPanel Orientation="Vertical">
+
+
+                                    <StackPanel x:Name="usersTable" />
+
+                                </StackPanel>
+                            </ScrollViewer>
                         </Border>
                     </Grid>
                 </Border>
