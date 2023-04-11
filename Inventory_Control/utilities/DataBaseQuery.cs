@@ -101,6 +101,76 @@ namespace Inventory_Control.utilities
             string query = $"DELETE FROM users WHERE id={idUser}";
             DatabaseConnectionAndQuery(query);
         }
+
+        #region SUPPLIERS QUERIES
+
+        public string GetAllSuppliers(out List<Supplier> suppliersData)
+        {
+            string result;
+            string query = $"SELECT * FROM suppliers";
+            DatabaseConnectionAndQuery(query);
+            result = queryResult.Rows.Count.ToString();
+            suppliersData = new List<Supplier>();
+            if (Convert.ToInt32(result) != 0)
+            {
+                for (int index = 0; index < queryResult.Rows.Count; index++)
+                {
+                    Supplier newSupplier = new Supplier
+                    {
+                        ID = Convert.ToInt32(queryResult.Rows[index].ItemArray.GetValue(0)),
+                        Name = queryResult.Rows[index].ItemArray.GetValue(1).ToString(),
+                        Contact = queryResult.Rows[index].ItemArray.GetValue(2).ToString(),
+                        Email = queryResult.Rows[index].ItemArray.GetValue(3).ToString(),
+                        Phone = queryResult.Rows[index].ItemArray.GetValue(4).ToString(),
+                    };
+                    suppliersData.Add(newSupplier);
+                }
+            }
+
+            return result;
+        }
+
+        public string GetSupplier(int idSupplier, out Array supplierData)
+        {
+            supplierData = null;
+            string result;
+            string query = $"SELECT * FROM suppliers WHERE id='{idSupplier}'";
+            DatabaseConnectionAndQuery(query);
+            result = queryResult.Rows.Count.ToString();
+            if (Convert.ToInt32(result) != 0)
+            {
+                supplierData = queryResult.Rows[0].ItemArray;
+            }
+            return result;
+        }
+
+        public void AddSupplier(Supplier supplierData)
+        {
+            ConnectioDB.Open();
+            string query = $"INSERT INTO suppliers(name, contact, email, phone) VALUES('{supplierData.Name}', '{supplierData.Contact}', '{supplierData.Email}', '{supplierData.Phone}')";
+            MySqlCommand command = new MySqlCommand(query, ConnectioDB);
+            MySqlDataAdapter miAdapter = new MySqlDataAdapter();
+            command.ExecuteNonQuery();
+            ConnectioDB.Close();
+        }
+
+        public void EditSupplier(int idSupplier, Supplier supplierData)
+        {
+            ConnectioDB.Open();
+            string query = $"UPDATE suppliers SET name='{supplierData.Name}', contact='{supplierData.Contact}', email='{supplierData.Email}', phone='{supplierData.Phone}' WHERE id={idSupplier}";
+            MySqlCommand command = new MySqlCommand(query, ConnectioDB);
+            MySqlDataAdapter miAdapter = new MySqlDataAdapter();
+            command.ExecuteNonQuery();
+            ConnectioDB.Close();
+        }
+
+        public void DeleteSupplier(int idSupplier)
+        {
+            string query = $"DELETE FROM suppliers WHERE id={idSupplier}";
+            DatabaseConnectionAndQuery(query);
+        }
+
+        #endregion
     }
 
 

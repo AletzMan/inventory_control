@@ -100,7 +100,7 @@
                                             HorizontalContentAlignment="Center"
                                             BorderBrush="{DynamicResource HeaderBrush}"
                                             BorderThickness="0,0,2,0"
-                                            Content="NAME"
+                                            Content="NOMBRE"
                                             Foreground="{DynamicResource FontBrush}" />
                                         <Label
                                             MinWidth="250"
