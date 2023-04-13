@@ -119,9 +119,11 @@ namespace Inventory_Control.utilities
                     {
                         ID = Convert.ToInt32(queryResult.Rows[index].ItemArray.GetValue(0)),
                         Name = queryResult.Rows[index].ItemArray.GetValue(1).ToString(),
-                        Contact = queryResult.Rows[index].ItemArray.GetValue(2).ToString(),
-                        Email = queryResult.Rows[index].ItemArray.GetValue(3).ToString(),
-                        Phone = queryResult.Rows[index].ItemArray.GetValue(4).ToString(),
+                        RFC = queryResult.Rows[index].ItemArray.GetValue(2).ToString(),
+                        Address = queryResult.Rows[index].ItemArray.GetValue(3).ToString(),
+                        Contact = queryResult.Rows[index].ItemArray.GetValue(4).ToString(),
+                        Email = queryResult.Rows[index].ItemArray.GetValue(5).ToString(),
+                        Phone = queryResult.Rows[index].ItemArray.GetValue(6).ToString(),
                     };
                     suppliersData.Add(newSupplier);
                 }
@@ -147,7 +149,7 @@ namespace Inventory_Control.utilities
         public void AddSupplier(Supplier supplierData)
         {
             ConnectioDB.Open();
-            string query = $"INSERT INTO suppliers(name, contact, email, phone) VALUES('{supplierData.Name}', '{supplierData.Contact}', '{supplierData.Email}', '{supplierData.Phone}')";
+            string query = $"INSERT INTO suppliers(name, rfc, address, contact, email, phone) VALUES('{supplierData.Name}', '{supplierData.RFC}','{supplierData.Address}', '{supplierData.Contact}', '{supplierData.Email}', '{supplierData.Phone}')";
             MySqlCommand command = new MySqlCommand(query, ConnectioDB);
             MySqlDataAdapter miAdapter = new MySqlDataAdapter();
             command.ExecuteNonQuery();
@@ -157,7 +159,7 @@ namespace Inventory_Control.utilities
         public void EditSupplier(int idSupplier, Supplier supplierData)
         {
             ConnectioDB.Open();
-            string query = $"UPDATE suppliers SET name='{supplierData.Name}', contact='{supplierData.Contact}', email='{supplierData.Email}', phone='{supplierData.Phone}' WHERE id={idSupplier}";
+            string query = $"UPDATE suppliers SET name='{supplierData.Name}', name='{supplierData.RFC}', address='{supplierData.Address}', contact='{supplierData.Contact}', email='{supplierData.Email}', phone='{supplierData.Phone}' WHERE id={idSupplier}";
             MySqlCommand command = new MySqlCommand(query, ConnectioDB);
             MySqlDataAdapter miAdapter = new MySqlDataAdapter();
             command.ExecuteNonQuery();

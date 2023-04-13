@@ -22,6 +22,7 @@ namespace Inventory_Control.pages
     {
         public SalesPage()
         {
+
             InitializeComponent();
         }
     }

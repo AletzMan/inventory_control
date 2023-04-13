@@ -8,6 +8,7 @@
     Title="SuppliersPage"
     d:DesignHeight="860"
     d:DesignWidth="1250"
+    FontFamily="Bahnschrift Light"
     mc:Ignorable="d">
 
 
@@ -18,8 +19,6 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-
-
         <Grid Grid.Column="1" Margin="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="600" />

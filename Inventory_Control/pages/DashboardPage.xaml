@@ -17,10 +17,6 @@
         Height="Auto"
         VerticalAlignment="Stretch"
         Background="{DynamicResource OptionalBrush}">
-
-
-
-
         <Grid Grid.Column="1" Margin="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="200" />
