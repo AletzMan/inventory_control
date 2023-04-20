@@ -121,9 +121,14 @@ namespace Inventory_Control.utilities
                         Name = queryResult.Rows[index].ItemArray.GetValue(1).ToString(),
                         RFC = queryResult.Rows[index].ItemArray.GetValue(2).ToString(),
                         Address = queryResult.Rows[index].ItemArray.GetValue(3).ToString(),
-                        Contact = queryResult.Rows[index].ItemArray.GetValue(4).ToString(),
-                        Email = queryResult.Rows[index].ItemArray.GetValue(5).ToString(),
-                        Phone = queryResult.Rows[index].ItemArray.GetValue(6).ToString(),
+                        Colonia = queryResult.Rows[index].ItemArray.GetValue(4).ToString(),
+                        ZipCode = queryResult.Rows[index].ItemArray.GetValue(5).ToString(),
+                        City = queryResult.Rows[index].ItemArray.GetValue(6).ToString(),
+                        State = queryResult.Rows[index].ItemArray.GetValue(7).ToString(),
+                        Contact = queryResult.Rows[index].ItemArray.GetValue(8).ToString(),
+                        Email = queryResult.Rows[index].ItemArray.GetValue(9).ToString(),
+                        Phone = queryResult.Rows[index].ItemArray.GetValue(10).ToString(),
+                        Image = queryResult.Rows[index].ItemArray.GetValue(11).ToString(),
                     };
                     suppliersData.Add(newSupplier);
                 }
@@ -149,7 +154,7 @@ namespace Inventory_Control.utilities
         public void AddSupplier(Supplier supplierData)
         {
             ConnectioDB.Open();
-            string query = $"INSERT INTO suppliers(name, rfc, address, contact, email, phone) VALUES('{supplierData.Name}', '{supplierData.RFC}','{supplierData.Address}', '{supplierData.Contact}', '{supplierData.Email}', '{supplierData.Phone}')";
+            string query = $"INSERT INTO suppliers(name, rfc, address, colonia, zipcode, city, state, contact, email, phone, image) VALUES('{supplierData.Name}', '{supplierData.RFC}', '{supplierData.Address}', '{supplierData.Colonia}', '{supplierData.ZipCode}', '{supplierData.City}', '{supplierData.State}', '{supplierData.Contact}', '{supplierData.Email}', '{supplierData.Phone}', '{supplierData.Image}')";
             MySqlCommand command = new MySqlCommand(query, ConnectioDB);
             MySqlDataAdapter miAdapter = new MySqlDataAdapter();
             command.ExecuteNonQuery();
@@ -159,7 +164,7 @@ namespace Inventory_Control.utilities
         public void EditSupplier(int idSupplier, Supplier supplierData)
         {
             ConnectioDB.Open();
-            string query = $"UPDATE suppliers SET name='{supplierData.Name}', name='{supplierData.RFC}', address='{supplierData.Address}', contact='{supplierData.Contact}', email='{supplierData.Email}', phone='{supplierData.Phone}' WHERE id={idSupplier}";
+            string query = $"UPDATE suppliers SET name='{supplierData.Name}', name='{supplierData.RFC}', address='{supplierData.Address}', colonia='{supplierData.Colonia}', zipcode='{supplierData.ZipCode}', city='{supplierData.City}', state='{supplierData.State}', contact='{supplierData.Contact}', email='{supplierData.Email}', phone='{supplierData.Phone}', image='{supplierData.Image}' WHERE id={idSupplier}";
             MySqlCommand command = new MySqlCommand(query, ConnectioDB);
             MySqlDataAdapter miAdapter = new MySqlDataAdapter();
             command.ExecuteNonQuery();

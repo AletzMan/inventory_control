@@ -39,26 +39,32 @@ namespace Inventory_Control.pages
                     Name = "user",
                     Orientation = Orientation.Horizontal,
                     VerticalAlignment = VerticalAlignment.Top,
-                    MaxHeight = 120
+                    MaxHeight = 150
                 };
                 Border border = new Border
                 {
                     BorderBrush = (Brush)new BrushConverter().ConvertFromString("#FFDDDDDD"),
                     BorderThickness = new Thickness(2),
                     Margin = new Thickness(10),
-                    Padding = new Thickness(5),
+                    Padding = new Thickness(10),
                     CornerRadius = new CornerRadius(4),
                     HorizontalAlignment = HorizontalAlignment.Stretch,
                     VerticalAlignment = VerticalAlignment.Top,
                     Background = (Brush)new BrushConverter().ConvertFromString("#FFEFEFEF"),
-                    MaxHeight = 120
+                    MaxHeight = 150
+                };
+                Image imageSupplier = new Image
+                {
+                    Width = 150,
+                    Source = new BitmapImage(new Uri(supplier.Image, UriKind.Absolute)),
                 };
                 Label idLabel = new Label
                 {
                     MinWidth = 80,
+                    Padding = new Thickness(0, 5, 0, 0),
                     FontWeight = FontWeights.Bold,
                     FontFamily = new FontFamily("Segoe UI Semibold"),
-                    Background = Brushes.AliceBlue,
+                    Background = Brushes.Transparent,
                     HorizontalContentAlignment = HorizontalAlignment.Right,
                     FontSize = 14,
                     Foreground = (Brush)Application.Current.Resources["TertiaryBrush"],
@@ -85,7 +91,7 @@ namespace Inventory_Control.pages
                     MinWidth = 80,
                     FontFamily = new FontFamily("Segoe UI Semibold"),
                     HorizontalContentAlignment = HorizontalAlignment.Right,
-                    Background = Brushes.AliceBlue,
+                    Background = Brushes.Transparent,
                     FontSize = 14,
                     Foreground = (Brush)Application.Current.Resources["TertiaryBrush"],
                     Content = "Nombre: "
@@ -112,7 +118,7 @@ namespace Inventory_Control.pages
                     MinWidth = 80,
                     FontFamily = new FontFamily("Segoe UI Semibold"),
                     HorizontalContentAlignment = HorizontalAlignment.Right,
-                    Background = Brushes.AliceBlue,
+                    Background = Brushes.Transparent,
                     FontSize = 14,
                     Foreground = (Brush)Application.Current.Resources["TertiaryBrush"],
                     Content = "R.F.C.: "
@@ -139,7 +145,7 @@ namespace Inventory_Control.pages
                     MinWidth = 80,
                     FontFamily = new FontFamily("Segoe UI Semibold"),
                     HorizontalContentAlignment = HorizontalAlignment.Right,
-                    Background = Brushes.AliceBlue,
+                    Background = Brushes.Transparent,
                     FontSize = 14,
                     Foreground = (Brush)Application.Current.Resources["TertiaryBrush"],
                     Content = "Dirección: "
@@ -177,7 +183,7 @@ namespace Inventory_Control.pages
                     MinWidth = 80,
                     FontFamily = new FontFamily("Segoe UI Semibold"),
                     HorizontalContentAlignment = HorizontalAlignment.Right,
-                    Background = Brushes.AliceBlue,
+                    Background = Brushes.Transparent,
                     FontSize = 14,
                     Foreground = (Brush)Application.Current.Resources["TertiaryBrush"],
                     Content = "Contacto: "
@@ -204,7 +210,7 @@ namespace Inventory_Control.pages
                     MinWidth = 80,
                     FontFamily = new FontFamily("Segoe UI Semibold"),
                     HorizontalContentAlignment = HorizontalAlignment.Right,
-                    Background = Brushes.AliceBlue,
+                    Background = Brushes.Transparent,
                     FontSize = 14,
                     Foreground = (Brush)Application.Current.Resources["TertiaryBrush"],
                     Content = "Email: "
@@ -231,7 +237,7 @@ namespace Inventory_Control.pages
                     MinWidth = 80,
                     FontFamily = new FontFamily("Segoe UI Semibold"),
                     HorizontalContentAlignment = HorizontalAlignment.Right,
-                    Background = Brushes.AliceBlue,
+                    Background = Brushes.Transparent,
                     FontSize = 14,
                     Foreground = (Brush)Application.Current.Resources["TertiaryBrush"],
                     Content = "Teléfono: "
@@ -273,7 +279,7 @@ namespace Inventory_Control.pages
                 Button editUser = new Button
                 {
                     Content = imageEditUser,
-                    Margin = new Thickness(150, 0, 5, 0),
+                    Margin = new Thickness(5, 0, 5, 0),
                     Padding = new Thickness(10, 0, 10, 0),
                     Visibility = Visibility.Hidden,
                     HorizontalAlignment = HorizontalAlignment.Right,
@@ -303,6 +309,7 @@ namespace Inventory_Control.pages
 
                 };
                 border.Child = newSupplier;
+                newSupplier.Children.Add(imageSupplier);
                 newSupplier.Children.Add(card);
                 newSupplier.Children.Add(cardTwo);
                 //newSupplier.Children.Add(emailUser);
@@ -325,8 +332,8 @@ namespace Inventory_Control.pages
             newBorder.Background = (Brush)new BrushConverter().ConvertFromString("#FFE9E9E9");
             newBorder.BorderBrush = (Brush)Application.Current.Resources["ButtonBrush"];
             StackPanel stackPanelUser = newBorder.Child as StackPanel;
-            Button buttoEdit = stackPanelUser.Children[2] as Button;
-            Button buttoDelete = stackPanelUser.Children[3] as Button;
+            Button buttoEdit = stackPanelUser.Children[3] as Button;
+            Button buttoDelete = stackPanelUser.Children[4] as Button;
             buttoEdit.Visibility = Visibility.Visible;
             buttoDelete.Visibility = Visibility.Visible;
         }
@@ -336,8 +343,8 @@ namespace Inventory_Control.pages
             newBorder.BorderBrush = (Brush)new BrushConverter().ConvertFromString("#FFDDDDDD");
             newBorder.Background = (Brush)new BrushConverter().ConvertFromString("#FFEFEFEF");
             StackPanel stackPanelUser = newBorder.Child as StackPanel;
-            Button buttoEdit = stackPanelUser.Children[2] as Button;
-            Button buttoDelete = stackPanelUser.Children[3] as Button;
+            Button buttoEdit = stackPanelUser.Children[3] as Button;
+            Button buttoDelete = stackPanelUser.Children[4] as Button;
             buttoEdit.Visibility = Visibility.Hidden;
             buttoDelete.Visibility = Visibility.Hidden;
         }
@@ -346,9 +353,13 @@ namespace Inventory_Control.pages
         {
             Button editButton = sender as Button;
             StackPanel panel = editButton.Parent as StackPanel;
-            TextBlock supplierText = panel.Children[1] as TextBlock;
-            string userName = supplierText.Text;
-            int supplierID = Convert.ToInt32((panel.Children[0] as TextBlock).Text);
+            StackPanel panelInfo = panel.Children[1] as StackPanel;
+            StackPanel panelID = panelInfo.Children[0] as StackPanel;
+            StackPanel panelName = panelInfo.Children[1] as StackPanel;
+            TextBlock id = panelID.Children[1] as TextBlock;
+            TextBlock name = panelName.Children[1] as TextBlock;
+            string userName = name.Text;
+            int supplierID = Convert.ToInt32(id.Text);
             MessageBoxResult result = MessageWindow.ShowWindow($"Desea eliminar al proveedor: '{userName}' de la base de datos? No se podra recuperar", "Eliminar Proveedor", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             Effect = null;
             if (result == MessageBoxResult.Yes)
@@ -368,8 +379,10 @@ namespace Inventory_Control.pages
         {
             Button editButton = sender as Button;
             StackPanel panel = editButton.Parent as StackPanel;
-            TextBlock supplierText = panel.Children[0] as TextBlock;
-            int supplierID = Convert.ToInt32(supplierText.Text);
+            StackPanel panelInfo = panel.Children[1] as StackPanel;
+            StackPanel panelID = panelInfo.Children[0] as StackPanel;
+            TextBlock id = panelID.Children[1] as TextBlock;
+            int supplierID = Convert.ToInt32(id.Text);
             EditNewSuplierWindow editSupplierWindow = new EditNewSuplierWindow(supplierID);
             editSupplierWindow.ShowDialog();
             int numberSuppliers = suppliersTable.Children.Count;
@@ -401,9 +414,14 @@ namespace Inventory_Control.pages
         public string Name { get; set; }
         public string RFC { get; set; }
         public string Address { get; set; }
+        public string Colonia { get; set; }
+        public string ZipCode { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
         public string Contact { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
+        public string Image { get; set; }
     }
 
 }

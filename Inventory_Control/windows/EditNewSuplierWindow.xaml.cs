@@ -1,6 +1,7 @@
 ﻿using Inventory_Control.pages;
 using Inventory_Control.utilities;
 using System;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.IO;
+using Inventory_Control.constants;
 
 namespace Inventory_Control.windows
 {
@@ -23,11 +26,14 @@ namespace Inventory_Control.windows
     public partial class EditNewSuplierWindow : Window
     {
         DataBaseQuery EditSupplierQuery = new DataBaseQuery();
+        ApiRest apiRest = new ApiRest();
         private int SupplierID = 0;
+        IList<string> namesCity;
         public EditNewSuplierWindow(int IdSupplier)
         {
             SupplierID = IdSupplier;
             InitializeComponent();
+            DataContext = this;
             if (IdSupplier == 0)
             {
                 TitleWindow.Content = "Agregar proveedor";
@@ -43,9 +49,16 @@ namespace Inventory_Control.windows
             }
         }
 
+
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
+            //dynamic results = apiRest.GetData("https://api.datos.gob.mx/v1/condiciones-atmosfericas");
+            //string path = Environment.CurrentDirectory + "/utilities/States.json";
+            string path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\utilities\\States.json";
+            
+            States obj = JsonConvert.DeserializeObject<States>(File.ReadAllText(path));
+            namesCity = obj.Aguascalientes;
         }
 
         private void ButtonClose_Click(object sender, RoutedEventArgs e)
@@ -60,6 +73,12 @@ namespace Inventory_Control.windows
                 Supplier newSupplier = new Supplier
                 {
                     Name = userName.Text,
+                    RFC = rfc.Text,
+                    Address = address.Text,
+                    Colonia = colonia.Text,
+                    ZipCode = zipCode.Text,
+                    City = city.Text,
+                    State = state.Text,
                     Contact = contact.Text,
                     Email = email.Text,
                     Phone = phone.Text
@@ -157,6 +176,15 @@ namespace Inventory_Control.windows
                 errorPhone.Visibility = Visibility.Hidden;
             }
             textBoxField.BorderBrush = (Brush)Application.Current.Resources["OptionalBrush"];
+        }
+
+        private void UserName_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if ((sender as TextBox).Text.Length > (sender as TextBox).MaxLength)
+            {
+                (sender as TextBox).Text = (sender as TextBox).Text.Substring(0, (sender as TextBox).MaxLength);
+                (sender as TextBox).Text = (sender as TextBox).Text + "...";
+            }
         }
     }
 }
