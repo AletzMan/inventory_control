@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Proyectos\Programming\Desktop\inventory_control\Inventory_Control\obj\Debug\
+C:\Proyectos\Programming\Desktop\Inventory_Control\Inventory_Control\obj\Debug\
 Inventory_Control
 none
 false
 DEBUG;TRACE
-C:\Proyectos\Programming\Desktop\inventory_control\Inventory_Control\App.xaml
+C:\Proyectos\Programming\Desktop\Inventory_Control\Inventory_Control\App.xaml
 111460085830
-5-1014072508
+51407327560
 22-1538512722
-482088042832
+48638113656
 MainWindow.xaml;pages\CategoriesPage.xaml;pages\DashboardPage.xaml;pages\InventoryPage.xaml;pages\PermissionsPage.xaml;pages\ReportPage.xaml;pages\SalesPage.xaml;pages\SuppliersPage.xaml;windows\DialogWindow.xaml;windows\EditNewSuplierWindow.xaml;windows\EditNewUserWindow.xaml;
 
 True

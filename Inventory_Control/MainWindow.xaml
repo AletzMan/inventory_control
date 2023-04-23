@@ -106,25 +106,7 @@
                         <TextBlock
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
-                            Text="Permissions" />
-                    </StackPanel>
-                </Button>
-                <Button
-                    x:Name="categoriesButton"
-                    Click="CategoriesButton_Click"
-                    MouseEnter="MenuButton_MouseEnter"
-                    MouseLeave="MenuButton_MouseLeave"
-                    Style="{DynamicResource menuButton}">
-                    <StackPanel
-                        Width="140"
-                        Margin="0"
-                        HorizontalAlignment="Stretch"
-                        Orientation="Vertical">
-                        <Image Source="assets/categories.png" Style="{StaticResource imageButton}" />
-                        <TextBlock
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Text="Categories" />
+                            Text="Users" />
                     </StackPanel>
                 </Button>
                 <Button

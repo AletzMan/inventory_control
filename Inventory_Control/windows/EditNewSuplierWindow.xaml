@@ -7,13 +7,12 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:src="clr-namespace:Inventory_Control.constants"
     Title="EditNewSuplierWindow"
-    Width="500"
-    Height="550"
+    Width="600"
+    Height="630"
     AllowsTransparency="True"
     Background="Transparent"
     FontFamily="Bahnschrift Light"
     MouseDown="Window_MouseDown"
-    namesCity
     ResizeMode="NoResize"
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
@@ -53,99 +52,133 @@
                 </Border>
                 <Border Grid.Row="1" Padding="20">
                     <StackPanel Orientation="Vertical">
-                        <Label
-                            Margin="0,0,0,0"
-                            Content="Nombre"
-                            FontSize="14"
-                            Foreground="{DynamicResource SecondaryBrush}" />
-                        <TextBox
-                            x:Name="userName"
-                            Padding="5,8,0,8"
-                            Background="WhiteSmoke"
-                            BorderBrush="{DynamicResource OptionalBrush}"
-                            BorderThickness="0,0,0,2"
-                            FontSize="14"
-                            GotFocus="UserName_GotFocus"
-                            LostFocus="UserName_LostFocus"
-                            MaxLength="6"
-                            TabIndex="0"
-                            Text="" />
-                        <Label
-                            Name="errorUsername"
-                            Content="No puede quedar vacío"
-                            FontSize="13"
-                            Foreground="#88FF0000"
-                            Visibility="Hidden" />
-                        <Label
-                            Margin="0,0,0,0"
-                            Content="R.F.C."
-                            FontSize="14"
-                            Foreground="{DynamicResource SecondaryBrush}" />
-                        <TextBox
-                            Name="rfc"
-                            Padding="5,8,0,8"
-                            Background="WhiteSmoke"
-                            BorderBrush="{DynamicResource OptionalBrush}"
-                            BorderThickness="0,0,0,2"
-                            FontSize="14"
-                            GotFocus="UserName_GotFocus"
-                            TabIndex="1" />
-                        <Label
-                            Name="errorRFC"
-                            Content="No puede quedar vacío"
-                            FontSize="13"
-                            Foreground="#88FF0000"
-                            Visibility="Hidden" />
-                        <Label
-                            Margin="0,0,0,0"
-                            Content="Dirección"
-                            FontSize="14"
-                            Foreground="{DynamicResource SecondaryBrush}" />
-                        <TextBox
-                            Name="address"
-                            Padding="5,8,0,8"
-                            Background="WhiteSmoke"
-                            BorderBrush="{DynamicResource OptionalBrush}"
-                            BorderThickness="0,0,0,2"
-                            FontSize="14"
-                            GotFocus="UserName_GotFocus"
-                            TabIndex="1" />
-                        <Label
-                            Name="errorAddress"
-                            Content="No puede quedar vacío"
-                            FontSize="13"
-                            Foreground="#88FF0000"
-                            Visibility="Hidden" />
-                        <Label
-                            Margin="0,0,0,0"
-                            Content="Colonia"
-                            FontSize="14"
-                            Foreground="{DynamicResource SecondaryBrush}" />
-                        <TextBox
-                            Name="colonia"
-                            Padding="5,8,0,8"
-                            Background="WhiteSmoke"
-                            BorderBrush="{DynamicResource OptionalBrush}"
-                            BorderThickness="0,0,0,2"
-                            FontSize="14"
-                            GotFocus="UserName_GotFocus"
-                            TabIndex="1" />
-                        <Label
-                            Name="errorColonia"
-                            Content="No puede quedar vacío"
-                            FontSize="13"
-                            Foreground="#88FF0000"
-                            Visibility="Hidden" />
-                        <StackPanel Orientation="Horizontal">
-                            <StackPanel Orientation="Vertical">
+                        <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
+                            <StackPanel
+                                Width="200"
+                                Height="170"
+                                Margin="0,0,20,0"
+                                Background="{DynamicResource HeaderBrush}">
+                                <Image
+                                    x:Name="logo"
+                                    Width="200"
+                                    Height="170" />
+                                <TextBox
+                                    x:Name="urlImage"
+                                    Margin="0,-20,0,0"
+                                    Text="" />
+                            </StackPanel>
+                            <StackPanel Width="340">
                                 <Label
                                     Margin="0,0,0,0"
+                                    Background="#0D00ACB4"
+                                    Content="Nombre"
+                                    FontSize="14"
+                                    FontWeight="ExtraBold"
+                                    Foreground="{DynamicResource TertiaryBrush}" />
+                                <TextBox
+                                    x:Name="userName"
+                                    Padding="5,8,0,8"
+                                    Background="WhiteSmoke"
+                                    BorderBrush="{DynamicResource OptionalBrush}"
+                                    BorderThickness="0,0,0,2"
+                                    FontSize="14"
+                                    GotFocus="UserName_GotFocus"
+                                    LostFocus="UserName_LostFocus"
+                                    MaxLength="25"
+                                    TabIndex="0"
+                                    Text="" />
+                                <Label
+                                    Name="errorUsername"
+                                    Background="#0D00ACB4"
+                                    Content="No puede quedar vacío"
+                                    FontSize="13"
+                                    Foreground="#88FF0000"
+                                    Visibility="Hidden" />
+                                <Label
+                                    Margin="0,0,0,0"
+                                    Background="#0D00ACB4"
+                                    Content="R.F.C."
+                                    FontSize="14"
+                                    Foreground="{DynamicResource TertiaryBrush}" />
+                                <TextBox
+                                    Name="rfc"
+                                    Padding="5,8,0,8"
+                                    Background="WhiteSmoke"
+                                    BorderBrush="{DynamicResource OptionalBrush}"
+                                    BorderThickness="0,0,0,2"
+                                    FontSize="14"
+                                    GotFocus="UserName_GotFocus"
+                                    TabIndex="1" />
+                                <Label
+                                    Name="errorRFC"
+                                    Content="No puede quedar vacío"
+                                    FontSize="13"
+                                    Foreground="#88FF0000"
+                                    Visibility="Hidden" />
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Width="290" Margin="0,0,10,0">
+                                <Label
+                                    Margin="0,0,0,0"
+                                    Background="#0D00ACB4"
+                                    Content="Dirección"
+                                    FontSize="14"
+                                    Foreground="{DynamicResource SecondaryBrush}" />
+                                <TextBox
+                                    Name="address"
+                                    Padding="5,8,0,8"
+                                    Background="WhiteSmoke"
+                                    BorderBrush="{DynamicResource OptionalBrush}"
+                                    BorderThickness="0,0,0,2"
+                                    FontSize="14"
+                                    GotFocus="UserName_GotFocus"
+                                    TabIndex="1" />
+                                <Label
+                                    Name="errorAddress"
+                                    Content="No puede quedar vacío"
+                                    FontSize="13"
+                                    Foreground="#88FF0000"
+                                    Visibility="Hidden" />
+                            </StackPanel>
+                            <StackPanel Width="260">
+                                <Label
+                                    Margin="0,0,0,0"
+                                    Background="#0D00ACB4"
+                                    Content="Colonia"
+                                    FontSize="14"
+                                    Foreground="{DynamicResource SecondaryBrush}" />
+                                <TextBox
+                                    Name="colonia"
+                                    Padding="5,8,0,8"
+                                    Background="WhiteSmoke"
+                                    BorderBrush="{DynamicResource OptionalBrush}"
+                                    BorderThickness="0,0,0,2"
+                                    FontSize="14"
+                                    GotFocus="UserName_GotFocus"
+                                    TabIndex="1" />
+                                <Label
+                                    Name="errorColonia"
+                                    Content="No puede quedar vacío"
+                                    FontSize="13"
+                                    Foreground="#88FF0000"
+                                    Visibility="Hidden" />
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel
+                                MaxWidth="130"
+                                Margin="0,0,10,0"
+                                Orientation="Vertical">
+                                <Label
+                                    Margin="0,0,0,0"
+                                    Background="#0D00ACB4"
                                     Content="Codigo Postal"
                                     FontSize="14"
                                     Foreground="{DynamicResource SecondaryBrush}" />
                                 <TextBox
                                     Name="zipCode"
-                                    Padding="5,8,0,8"
+                                    Padding="5,8,0,6"
                                     Background="WhiteSmoke"
                                     BorderBrush="{DynamicResource OptionalBrush}"
                                     BorderThickness="0,0,0,2"
@@ -159,34 +192,16 @@
                                     Foreground="#88FF0000"
                                     Visibility="Hidden" />
                             </StackPanel>
-                            <StackPanel Orientation="Vertical">
-                                <Label
-                                    Margin="0,0,0,0"
-                                    Content="Ciudad"
-                                    FontSize="14"
-                                    Foreground="{DynamicResource SecondaryBrush}" />
-                                <ComboBox
-                                    Name="city"
-                                    Padding="5,8,0,8"
-                                    Background="WhiteSmoke"
-                                    BorderBrush="{DynamicResource OptionalBrush}"
-                                    BorderThickness="0,0,0,2"
-                                    FontSize="14"
-                                    ItemsSource="{StaticResource}"
-                                    TabIndex="1" />
-                                <Label
-                                    Name="errorCity"
-                                    Content="No puede quedar vacío"
-                                    FontSize="13"
-                                    Foreground="#88FF0000"
-                                    Visibility="Hidden" />
-                            </StackPanel>
-                            <StackPanel Orientation="Vertical">
+                            <StackPanel
+                                MinWidth="220"
+                                Margin="0,0,10,0"
+                                Orientation="Vertical">
                                 <StackPanel.Resources>
                                     <src:StatesNames x:Key="StatesNames" />
                                 </StackPanel.Resources>
                                 <Label
                                     Margin="0,0,0,0"
+                                    Background="#0D00ACB4"
                                     Content="Estado"
                                     FontSize="14"
                                     Foreground="{DynamicResource SecondaryBrush}" />
@@ -198,6 +213,7 @@
                                     BorderThickness="0,0,0,2"
                                     FontSize="14"
                                     ItemsSource="{StaticResource StatesNames}"
+                                    SelectionChanged="State_SelectionChanged"
                                     TabIndex="1" />
                                 <Label
                                     Name="errorState"
@@ -206,9 +222,33 @@
                                     Foreground="#88FF0000"
                                     Visibility="Hidden" />
                             </StackPanel>
+                            <StackPanel Width="190" Orientation="Vertical">
+                                <Label
+                                    Margin="0,0,0,0"
+                                    Background="#0D00ACB4"
+                                    Content="Ciudad"
+                                    FontSize="14"
+                                    Foreground="{DynamicResource SecondaryBrush}" />
+                                <ComboBox
+                                    Name="city"
+                                    Padding="5,8,0,8"
+                                    Background="WhiteSmoke"
+                                    BorderBrush="{DynamicResource OptionalBrush}"
+                                    BorderThickness="0,0,0,2"
+                                    FontSize="14"
+                                    IsEnabled="False"
+                                    TabIndex="1" />
+                                <Label
+                                    Name="errorCity"
+                                    Content="No puede quedar vacío"
+                                    FontSize="13"
+                                    Foreground="#88FF0000"
+                                    Visibility="Hidden" />
+                            </StackPanel>
                         </StackPanel>
                         <Label
                             Margin="0,0,0,0"
+                            Background="#0D00ACB4"
                             Content="Contacto"
                             FontSize="14"
                             Foreground="{DynamicResource SecondaryBrush}" />
@@ -227,47 +267,55 @@
                             FontSize="13"
                             Foreground="#88FF0000"
                             Visibility="Hidden" />
-                        <Label
-                            Margin="0,0,0,0"
-                            Content="Email"
-                            FontSize="14"
-                            Foreground="{DynamicResource SecondaryBrush}" />
-                        <TextBox
-                            x:Name="email"
-                            Padding="5,8,0,8"
-                            Background="WhiteSmoke"
-                            BorderBrush="{DynamicResource OptionalBrush}"
-                            BorderThickness="0,0,0,2"
-                            FontSize="14"
-                            GotFocus="UserName_GotFocus"
-                            TabIndex="2"
-                            Text="" />
-                        <Label
-                            Name="errorEmail"
-                            Content="No puede quedar vacío"
-                            FontSize="13"
-                            Foreground="#88FF0000"
-                            Visibility="Hidden" />
-                        <Label
-                            Margin="0,0,0,0"
-                            Content="Telefono"
-                            FontSize="14"
-                            Foreground="{DynamicResource SecondaryBrush}" />
-                        <TextBox
-                            Name="phone"
-                            Padding="5,8,0,8"
-                            Background="WhiteSmoke"
-                            BorderBrush="{DynamicResource OptionalBrush}"
-                            BorderThickness="0,0,0,2"
-                            FontSize="14"
-                            GotFocus="UserName_GotFocus"
-                            TabIndex="3" />
-                        <Label
-                            Name="errorPhone"
-                            Content="No puede quedar vacío"
-                            FontSize="13"
-                            Foreground="#88FF0000"
-                            Visibility="Hidden" />
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Width="300" Margin="0,0,10,0">
+                                <Label
+                                    Margin="0,0,0,0"
+                                    Background="#0D00ACB4"
+                                    Content="Email"
+                                    FontSize="14"
+                                    Foreground="{DynamicResource SecondaryBrush}" />
+                                <TextBox
+                                    x:Name="email"
+                                    Padding="5,8,0,8"
+                                    Background="WhiteSmoke"
+                                    BorderBrush="{DynamicResource OptionalBrush}"
+                                    BorderThickness="0,0,0,2"
+                                    FontSize="14"
+                                    GotFocus="UserName_GotFocus"
+                                    TabIndex="2"
+                                    Text="" />
+                                <Label
+                                    Name="errorEmail"
+                                    Content="No puede quedar vacío"
+                                    FontSize="13"
+                                    Foreground="#88FF0000"
+                                    Visibility="Hidden" />
+                            </StackPanel>
+                            <StackPanel Width="250">
+                                <Label
+                                    Margin="0,0,0,0"
+                                    Background="#0D00ACB4"
+                                    Content="Telefono"
+                                    FontSize="14"
+                                    Foreground="{DynamicResource SecondaryBrush}" />
+                                <TextBox
+                                    Name="phone"
+                                    Padding="5,8,0,8"
+                                    Background="WhiteSmoke"
+                                    BorderBrush="{DynamicResource OptionalBrush}"
+                                    BorderThickness="0,0,0,2"
+                                    FontSize="14"
+                                    GotFocus="UserName_GotFocus"
+                                    TabIndex="3" />
+                                <Label
+                                    Name="errorPhone"
+                                    Content="No puede quedar vacío"
+                                    FontSize="13"
+                                    Foreground="#88FF0000"
+                                    Visibility="Hidden" />
+                            </StackPanel>
+                        </StackPanel>
                         <Button
                             x:Name="save"
                             Margin="0,0,0,0"

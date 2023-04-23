@@ -164,7 +164,7 @@ namespace Inventory_Control.utilities
         public void EditSupplier(int idSupplier, Supplier supplierData)
         {
             ConnectioDB.Open();
-            string query = $"UPDATE suppliers SET name='{supplierData.Name}', name='{supplierData.RFC}', address='{supplierData.Address}', colonia='{supplierData.Colonia}', zipcode='{supplierData.ZipCode}', city='{supplierData.City}', state='{supplierData.State}', contact='{supplierData.Contact}', email='{supplierData.Email}', phone='{supplierData.Phone}', image='{supplierData.Image}' WHERE id={idSupplier}";
+            string query = $"UPDATE suppliers SET name='{supplierData.Name}', rfc='{supplierData.RFC}', address='{supplierData.Address}', colonia='{supplierData.Colonia}', zipcode='{supplierData.ZipCode}', city='{supplierData.City}', state='{supplierData.State}', contact='{supplierData.Contact}', email='{supplierData.Email}', phone='{supplierData.Phone}', image='{supplierData.Image}' WHERE id={idSupplier}";
             MySqlCommand command = new MySqlCommand(query, ConnectioDB);
             MySqlDataAdapter miAdapter = new MySqlDataAdapter();
             command.ExecuteNonQuery();

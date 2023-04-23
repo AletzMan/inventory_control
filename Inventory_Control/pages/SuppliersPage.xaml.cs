@@ -298,7 +298,7 @@ namespace Inventory_Control.pages
                 Button deleteUser = new Button
                 {
                     Content = imageDelete,
-                    Margin = new Thickness(10, 0, 15, 0),
+                    Margin = new Thickness(0, 0, 15, 0),
                     HorizontalContentAlignment = HorizontalAlignment.Center,
                     VerticalContentAlignment = VerticalAlignment.Center,
                     Visibility = Visibility.Hidden,

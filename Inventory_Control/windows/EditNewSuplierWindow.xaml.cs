@@ -33,6 +33,7 @@ namespace Inventory_Control.windows
         {
             SupplierID = IdSupplier;
             InitializeComponent();
+
             DataContext = this;
             if (IdSupplier == 0)
             {
@@ -43,9 +44,17 @@ namespace Inventory_Control.windows
                 TitleWindow.Content = "Editar proveedor";
                 EditSupplierQuery.GetSupplier(IdSupplier, out Array userData);
                 userName.Text = userData.GetValue(1).ToString();
-                contact.Text = userData.GetValue(2).ToString();
-                email.Text = userData.GetValue(3).ToString();
-                phone.Text = userData.GetValue(4).ToString();
+                rfc.Text = userData.GetValue(2).ToString();
+                address.Text = userData.GetValue(3).ToString();
+                colonia.Text = userData.GetValue(4).ToString();
+                zipCode.Text = userData.GetValue(5).ToString();
+                state.Text = userData.GetValue(7).ToString();
+                city.Text = userData.GetValue(6).ToString();
+                contact.Text = userData.GetValue(8).ToString();
+                email.Text = userData.GetValue(9).ToString();
+                phone.Text = userData.GetValue(10).ToString();
+                urlImage.Text = userData.GetValue(11).ToString();
+                logo.Source = new BitmapImage(new Uri(userData.GetValue(11).ToString(), UriKind.Absolute));
             }
         }
 
@@ -53,12 +62,7 @@ namespace Inventory_Control.windows
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
-            //dynamic results = apiRest.GetData("https://api.datos.gob.mx/v1/condiciones-atmosfericas");
-            //string path = Environment.CurrentDirectory + "/utilities/States.json";
-            string path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\utilities\\States.json";
-            
-            States obj = JsonConvert.DeserializeObject<States>(File.ReadAllText(path));
-            namesCity = obj.Aguascalientes;
+
         }
 
         private void ButtonClose_Click(object sender, RoutedEventArgs e)
@@ -81,7 +85,9 @@ namespace Inventory_Control.windows
                     State = state.Text,
                     Contact = contact.Text,
                     Email = email.Text,
-                    Phone = phone.Text
+                    Phone = phone.Text,
+                    Image = urlImage.Text
+
                 };
                 if (SupplierID == 0)
                 {
@@ -185,6 +191,18 @@ namespace Inventory_Control.windows
                 (sender as TextBox).Text = (sender as TextBox).Text.Substring(0, (sender as TextBox).MaxLength);
                 (sender as TextBox).Text = (sender as TextBox).Text + "...";
             }
+        }
+
+        private void State_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //dynamic results = apiRest.GetData("https://api.datos.gob.mx/v1/condiciones-atmosfericas");
+            //string path = Environment.CurrentDirectory + "/utilities/States.json";
+            string path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\utilities\\States.json";
+            var cities = JsonConvert.DeserializeObject<States>(File.ReadAllText(path));
+            int indexCity = state.SelectedIndex;
+            var stateSelected = cities.Municipios[indexCity];
+            city.ItemsSource = stateSelected;
+            city.IsEnabled = true;
         }
     }
 }
