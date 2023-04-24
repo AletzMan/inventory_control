@@ -21,7 +21,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" Margin="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="600" />
+                <RowDefinition Height="855" />
             </Grid.RowDefinitions>
             <Border
                 Grid.RowSpan="4"
@@ -58,7 +58,7 @@
                                         FontSize="25"
                                         Foreground="{DynamicResource PrimaryBrush}" />
                                     <Button
-                                        x:Name="AddUser"
+                                        x:Name="AddSupplier"
                                         Width="180"
                                         Height="40"
                                         Margin="15,5,0,0"
@@ -81,36 +81,20 @@
                                             HorizontalContentAlignment="Center"
                                             BorderBrush="{DynamicResource HeaderBrush}"
                                             BorderThickness="0,0,2,0"
-                                            Content="ID"
+                                            Content="Busqueda"
                                             Foreground="{DynamicResource FontBrush}" />
-                                        <Label
-                                            MinWidth="250"
-                                            HorizontalContentAlignment="Center"
-                                            BorderBrush="{DynamicResource HeaderBrush}"
-                                            BorderThickness="0,0,2,0"
-                                            Content="NOMBRE PROVEEDOR"
-                                            Foreground="{DynamicResource FontBrush}" />
-                                        <Label
-                                            MinWidth="250"
-                                            HorizontalContentAlignment="Center"
-                                            BorderBrush="{DynamicResource HeaderBrush}"
-                                            BorderThickness="0,0,2,0"
-                                            Content="CONTACTO"
-                                            Foreground="{DynamicResource FontBrush}" />
-                                        <Label
-                                            MinWidth="250"
-                                            HorizontalContentAlignment="Center"
-                                            BorderBrush="{DynamicResource HeaderBrush}"
-                                            BorderThickness="0,0,2,0"
-                                            Content="EMAIL"
-                                            Foreground="{DynamicResource FontBrush}" />
-                                        <Label
-                                            MinWidth="150"
-                                            HorizontalContentAlignment="Center"
-                                            BorderBrush="{DynamicResource HeaderBrush}"
-                                            BorderThickness="0,0,2,0"
-                                            Content="TELÉFONO"
-                                            Foreground="{DynamicResource FontBrush}" />
+                                        <TextBox
+                                            x:Name="search"
+                                            Width="300"
+                                            Padding="5,4,5,0"
+                                            Text="" />
+                                        <Button
+                                            x:Name="buttonSearch"
+                                            Margin="5,0,0,0"
+                                            Padding="10,0"
+                                            Background="{DynamicResource ButtonBrush}"
+                                            Click="ButtonSearch_Click"
+                                            Content="Buscar" />
                                     </StackPanel>
                                 </Border>
                             </StackPanel>

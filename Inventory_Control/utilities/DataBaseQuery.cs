@@ -151,6 +151,39 @@ namespace Inventory_Control.utilities
             return result;
         }
 
+        public string GetFilterSupplier(string search, out List<Supplier> suppliersData)
+        {
+            string result;
+            string query = $"SELECT * FROM suppliers WHERE name LIKE '%{search}%'";
+            DatabaseConnectionAndQuery(query);
+            result = queryResult.Rows.Count.ToString();
+            suppliersData = new List<Supplier>();
+            if (Convert.ToInt32(result) != 0)
+            {
+                for (int index = 0; index < queryResult.Rows.Count; index++)
+                {
+                    Supplier newSupplier = new Supplier
+                    {
+                        ID = Convert.ToInt32(queryResult.Rows[index].ItemArray.GetValue(0)),
+                        Name = queryResult.Rows[index].ItemArray.GetValue(1).ToString(),
+                        RFC = queryResult.Rows[index].ItemArray.GetValue(2).ToString(),
+                        Address = queryResult.Rows[index].ItemArray.GetValue(3).ToString(),
+                        Colonia = queryResult.Rows[index].ItemArray.GetValue(4).ToString(),
+                        ZipCode = queryResult.Rows[index].ItemArray.GetValue(5).ToString(),
+                        City = queryResult.Rows[index].ItemArray.GetValue(6).ToString(),
+                        State = queryResult.Rows[index].ItemArray.GetValue(7).ToString(),
+                        Contact = queryResult.Rows[index].ItemArray.GetValue(8).ToString(),
+                        Email = queryResult.Rows[index].ItemArray.GetValue(9).ToString(),
+                        Phone = queryResult.Rows[index].ItemArray.GetValue(10).ToString(),
+                        Image = queryResult.Rows[index].ItemArray.GetValue(11).ToString(),
+                    };
+                    suppliersData.Add(newSupplier);
+                }
+            }
+
+            return result;
+        }
+
         public void AddSupplier(Supplier supplierData)
         {
             ConnectioDB.Open();

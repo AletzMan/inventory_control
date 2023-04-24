@@ -27,22 +27,22 @@ namespace Inventory_Control.pages
         {
             InitializeComponent();
             SupplierQuery.GetAllSuppliers(out List<Supplier> suppliersData);
-            CreateUser(suppliersData);
+            CreateSupplier(suppliersData);
         }
 
-        private void CreateUser(List<Supplier> suppliers)
+        private void CreateSupplier(List<Supplier> suppliers)
         {
             foreach (Supplier supplier in suppliers)
             {
                 StackPanel newSupplier = new StackPanel
                 {
-                    Name = "user",
                     Orientation = Orientation.Horizontal,
                     VerticalAlignment = VerticalAlignment.Top,
                     MaxHeight = 150
                 };
                 Border border = new Border
                 {
+                    Name = supplier.Name.Replace(" ", "_"),
                     BorderBrush = (Brush)new BrushConverter().ConvertFromString("#FFDDDDDD"),
                     BorderThickness = new Thickness(2),
                     Margin = new Thickness(10),
@@ -371,7 +371,7 @@ namespace Inventory_Control.pages
                     suppliersTable.Children.Remove(suppliersTable.Children[0] as Border);
                 }
                 SupplierQuery.GetAllSuppliers(out List<Supplier> suppliersData);
-                CreateUser(suppliersData);
+                CreateSupplier(suppliersData);
             }
         }
 
@@ -391,7 +391,7 @@ namespace Inventory_Control.pages
                 suppliersTable.Children.Remove(suppliersTable.Children[0] as Border);
             }
             SupplierQuery.GetAllSuppliers(out List<Supplier> suppliersData);
-            CreateUser(suppliersData);
+            CreateSupplier(suppliersData);
         }
 
         private void Handle_AddSupplier(object sender, RoutedEventArgs e)
@@ -404,9 +404,43 @@ namespace Inventory_Control.pages
                 suppliersTable.Children.Remove(suppliersTable.Children[0] as Border);
             }
             SupplierQuery.GetAllSuppliers(out List<Supplier> suppliersData);
-            CreateUser(suppliersData);
+            CreateSupplier(suppliersData);
         }
 
+        private void ButtonSearch_Click(object sender, RoutedEventArgs e)
+        {
+            int numberSuppliers = suppliersTable.Children.Count;
+            for (int index = 0; index < numberSuppliers; index++)
+            {
+                if (suppliersTable.Children[0].GetType().Name == "TextBlock")
+                {
+                    suppliersTable.Children.Remove(suppliersTable.Children[0] as TextBlock);
+                }
+                else
+                {
+                    suppliersTable.Children.Remove(suppliersTable.Children[0] as Border);
+                }
+            }
+            SupplierQuery.GetFilterSupplier(search.Text, out List<Supplier> suppliersData);
+            if (suppliersData.Count == 0)
+            {
+                TextBlock noFound = new TextBlock
+                {
+                    Text = $"No se encontraron resultados para '{search.Text}'",
+                    Padding = new Thickness(30, 30, 15, 0),
+                    FontSize = 16,
+                    Foreground = Brushes.Red,
+                    MinWidth = 150,
+                    TextAlignment = TextAlignment.Left
+
+                };
+                suppliersTable.Children.Add(noFound);
+
+            }
+            CreateSupplier(suppliersData);
+
+
+        }
     }
     public class Supplier
     {
